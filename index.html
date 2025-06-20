@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Space Shooter - Puter Game</title>
+        <script src="https://js.puter.com/v2/"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000;
+                color: #fff;
+                font-family: 'Courier New', monospace;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            #gameContainer {
+                position: relative;
+            }
+
+            #ui {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 100;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            #gameOver {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.9);
+                padding: 30px;
+                border-radius: 10px;
+                text-align: center;
+                z-index: 200;
+                display: none;
+            }
+
+            #startScreen {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.9);
+                padding: 30px;
+                border-radius: 10px;
+                text-align: center;
+                z-index: 200;
+            }
+
+            button {
+                background: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background: #45a049;
+            }
+
+            #leaderboard {
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            .score-entry {
+                margin: 5px 0;
+                padding: 5px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🚀 Space Shooter</h1>
+
+        <div id="gameContainer">
+            <div id="ui">
+                <div>Score:
+                    <span id="score">0</span></div>
+                <div>Lives:
+                    <span id="lives">3</span></div>
+                <div>Level:
+                    <span id="level">1</span></div>
+                <div id="userInfo" style="margin-top: 10px; font-size: 12px;"></div>
+            </div>
+
+            <div id="startScreen">
+                <h2>🚀 Space Shooter</h2>
+                <p>Use ARROW KEYS to move</p>
+                <p>Press SPACEBAR to shoot</p>
+                <p>Destroy enemies to score points!</p>
+                <button id="startBtn">Start Game</button>
+                <button id="loginBtn">Login to Save High Scores</button>
+                <div id="leaderboard">
+                    <h3>High Scores</h3>
+                    <div id="highScores">Loading...</div>
+                </div>
+            </div>
+
+            <div id="gameOver">
+                <h2>Game Over!</h2>
+                <p>Final Score:
+                    <span id="finalScore">0</span></p>
+                <p id="highScoreMsg"></p>
+                <button id="restartBtn">Play Again</button>
+                <button id="saveScoreBtn" style="display: none;">Save High Score</button>
+            </div>
+        </div>
+
+        <script src="game.js"></script>
+    </body>
+</html>
